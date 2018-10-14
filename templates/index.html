@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tastyfier</title>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/animate.css">
+
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/aos.css">
+
+    <link rel="stylesheet" href="../static/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="../static/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../static/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="../static/css/flaticon.css">
+    <link rel="stylesheet" href="../static/css/icomoon.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="#" style="font-family: Sacramento">Tastyfier </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#url" class="nav-link">Search by URL</a></li>
+                <li class="nav-item"><a href="#img" class="nav-link">Search by Image</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<section class="home-slider owl-carousel" id="#url">
+    <div class="slider-item" style="background-image: url('../static/images/bg_1.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text align-items-center justify-content-center text-center">
+                <div class="col-md-10 col-sm-12 ftco-animate">
+                    <h1 class="mb-3">Find recipes for the ingredients you have.</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-item" style="background-image: url('../static/images/bg_2.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text align-items-center justify-content-center text-center">
+                <div class="col-md-10 col-sm-12 ftco-animate">
+                    <h1 class="mb-3">Good to eat. Easy to cook.</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-item" style="background-image: url('../static/images/bg_3.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text align-items-center justify-content-center text-center">
+                <div class="col-md-10 col-sm-12 ftco-animate">
+                    <h1 class="mb-3">Happiness is homemade.</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END slider -->
+
+<div class="ftco-section-reservation" id="img">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 reservation pt-5 px-5">
+                <div class="block-17" style="padding-right: 8% ;padding-left: 2%">
+                    <form action="{{ url_for('get_recipes') }}" method="post" class="d-block d-lg-flex">
+                        <div class="fields d-block d-lg-flex">
+                            <div class="textfield-name one-third" style="width: 85vw">
+                                <input type="hidden" name="flag" value="url">
+                                <input type="text" class="form-control" placeholder="URL" name="MediaUrl0"></div>
+                        </div>
+                        <div class="textfield-name one-third">
+                            <input style="height: 100%; width: 100%" type="submit" class="search-submit btn btn-primary" value="Search Recipes">
+                        </div>
+                    </form>
+                    <!--<form action="{{ url_for('get_recipes') }}" enctype='multipart/form-data' method="post" >
+                        <input type="hidden" name="flag" value="image">
+                        <input type="file" name="pic" accept="image/*">
+                        <input class="search-submit btn btn-primary" type="submit" value="Submit">
+                    </form>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="ftco-section bg-dark">
+    <h2 style="text-align: center; color: white; font-family: 'Roboto', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace; padding-top: 30px; margin-bottom: 75px">or</h2>
+    <div id="container" class="container">
+        <div class="row">
+            <div class="col-sm-10 offset-sm-1 text-center">
+                <div class="container">
+                <form action="{{ url_for('get_recipes') }}" enctype='multipart/form-data' method="post" class="form-inline justify-content-center">
+                    <input class="form-control" type="hidden" name="flag" value="image">
+                    <input class="form-control" type="file" name="pic" accept="image/*" style="width:85%">
+                    <br><br>
+                    <input class="search-submit btn btn-lg" type="submit" value="Submit" style="height:52px">
+                </form>
+            </div>
+            </div>
+        </div>
+</section>
+{% if display %}
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <span class="subheading">Recipes</span>
+                    <h2>Bon Appetit!</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 dish-menu">
+                    <div class="tab-content py-5" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <tbody>
+                            {%  for recipe in recipes %}
+                                <tr>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="menus d-flex ftco-animate">
+                                                <div class="menu-img" style="background-image: url({{ recipe.image_url }});"></div>
+                                                <div class="text d-flex">
+                                                    <div class="one-half">
+                                                        <h3>{{ recipe.title }}</h3>
+                                                        <p style="color:black"><a style="color: black" href="{{ recipe.source_url }}"> {{ recipe.source_url }}</a></p>
+                                                    </div>
+                                                    <div class="one-fourth">
+                                                        <button class="btn btn-dark" data-toggle="popover" title="Here's what you need" data-content="{{ recipe.ingredients }}" data-placement="right">Ingredients</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </div><!-- END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved. ></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="../static/js/popper.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/jquery.easing.1.3.js"></script>
+<script src="../static/js/jquery.waypoints.min.js"></script>
+<script src="../static/js/jquery.stellar.min.js"></script>
+<script src="../static/js/owl.carousel.min.js"></script>
+<script src="../static/js/jquery.magnific-popup.min.js"></script>
+<script src="../static/js/aos.js"></script>
+<script src="../static/js/jquery.animateNumber.min.js"></script>
+<script src="../static/js/bootstrap-datepicker.js"></script>
+<script src="../static/js/jquery.timepicker.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="../static/js/google-map.js"></script>
+<script src="../static/js/main.js"></script>
+
+</body>
+</html>
